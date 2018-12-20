@@ -1,10 +1,15 @@
 language: cpp
 compiler: gcc
 os: linux
+dist: xenial
 
-before_install:
-  - sudo apt-get update -q
-  - sudo apt-get install cmake
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake-data
+      - cmake
 
 script:
   - cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" ./
