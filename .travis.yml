@@ -1,0 +1,11 @@
+language: cpp
+compiler: gcc
+os: linux
+
+before_install:
+  - sudo apt-get update -q
+  - sudo apt-get install cmake
+
+script:
+  - cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" ./
+  - make
