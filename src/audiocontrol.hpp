@@ -7,12 +7,10 @@
 #include <string>
 #include <cmath>
 
-using namespace std;
-
 class AudioControl {
 
 public:
-    void set_volume(unsigned short value);
+    int set_volume(unsigned short value);
     unsigned short get_volume();
 
 private:
@@ -30,6 +28,5 @@ private:
     };
 
 };
-
 
 #endif //RPICONTROL_AUDIOCONTROL_H

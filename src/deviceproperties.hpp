@@ -9,7 +9,7 @@
 
 #include "../utils/utils.hpp"
 
-using namespace std;
+using std::string;
 
 typedef struct {
     string data;

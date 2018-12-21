@@ -1,11 +1,11 @@
 #include "audiocontrol.hpp"
 
-void AudioControl::set_volume(unsigned short value) {
-    string cmd;
+int AudioControl::set_volume(unsigned short value) {
+    std::string cmd;
     cmd.clear();
     cmd += "amixer set PCM -- ";
-    cmd += to_string(coefficients[value]);
-    system(cmd.data());
+    cmd += std::to_string(coefficients[value]);
+    return system(cmd.data());
 }
 
 unsigned short AudioControl::get_volume() {

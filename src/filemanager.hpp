@@ -5,15 +5,13 @@
 #include <vector>
 #include <dirent.h>
 
-using namespace std;
-
 class FileManager {
 private:
-    const string HOME_DIR = "/home/pi/";
+    const std::string HOME_DIR = "/home/pi/";
 
 public:
-    vector<string>* get_home_dir();
-    vector<string>* get_dir(string curr_path);
+    std::vector<std::string>* get_home_dir();
+    std::vector<std::string>* get_dir(std::string curr_path);
 };
 
 

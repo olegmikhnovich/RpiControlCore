@@ -1,11 +1,11 @@
 #include "filemanager.hpp"
 
-vector<string>* FileManager::get_home_dir() {
+std::vector<std::string>* FileManager::get_home_dir() {
     return get_dir(HOME_DIR);
 }
 
-vector<string>* FileManager::get_dir(string curr_path) {
-    auto directory = new vector<string>;
+std::vector<std::string>* FileManager::get_dir(std::string curr_path) {
+    auto directory = new std::vector<std::string>;
     auto dir = opendir(curr_path.data());
     dirent* entry = readdir(dir);
     while (entry != nullptr) {
