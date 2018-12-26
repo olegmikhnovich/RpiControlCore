@@ -80,6 +80,23 @@ bool change_password(const std::string &package) {
     return result;
 }
 
+std::string get_dir(const std::string &message) {
+    auto f = new FileManager;
+    std::vector<std::string> *data;
+    if (message == "home") {
+        data = f->get_home_dir();
+    } else {
+        data = f->get_dir(message);
+    }
+    std::string result;
+    for (auto &d: *data) {
+        result += d + "^";
+    }
+    delete f;
+    result = result.substr(0, result.size() - 1);
+    return result;
+}
+
 std::string RpiControlCore::process_package(std::string &header, std::string &message) {
     std::string response;
 
@@ -125,6 +142,21 @@ std::string RpiControlCore::process_package(std::string &header, std::string &me
         case sw_str(H_SET_NEW_PASSWORD):
             response = init_response(H_SET_NEW_PASSWORD);
             response += (change_password(message)) ? "true" : "false";
+            break;
+
+        case sw_str(H_REBOOT_DEVICE):
+            response = init_response(H_SET_DEVICE_NAME) + "OK";
+            Utils::exec("sudo reboot");
+            break;
+
+        case sw_str(H_SHUTDOWN_DEVICE):
+            response = init_response(H_SHUTDOWN_DEVICE) + "OK";
+            Utils::exec("sudo shutdown");
+            break;
+
+        case sw_str(H_GET_DIR):
+            response = init_response(H_GET_DIR);
+            response += get_dir(message);
             break;
 
         default:

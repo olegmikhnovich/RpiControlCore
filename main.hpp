@@ -18,6 +18,7 @@
 #include "utils/utils.hpp"
 #include "src/deviceproperties.hpp"
 #include "src/audiocontrol.hpp"
+#include "src/filemanager.hpp"
 
 #define PORT 4822
 #define BUFF_SIZE 8192
@@ -30,6 +31,9 @@
 #define H_SET_SOUND_VOLUME "set-sound-volume"
 #define H_SET_DEVICE_NAME "set-device-name"
 #define H_SET_NEW_PASSWORD "set-new-password"
+#define H_REBOOT_DEVICE "reboot-device"
+#define H_SHUTDOWN_DEVICE "shutdown-device"
+#define H_GET_DIR "get-dir"
 
 volatile sig_atomic_t sigint_flag = 0;
 
