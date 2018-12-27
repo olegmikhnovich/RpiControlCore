@@ -30,3 +30,15 @@ std::vector<std::string>* FileManager::get_dir(std::string curr_path) {
     closedir(dir);
     return directory;
 }
+
+std::string FileManager::get_file(std::string path) {
+    std::string data, buffer;
+    std::ifstream f(path);
+    if (f.is_open()) {
+        while (std::getline(f, buffer)) {
+            data += buffer + "\n";
+        }
+    }
+    f.close();
+    return data;
+}

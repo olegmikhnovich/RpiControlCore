@@ -34,6 +34,7 @@
 #define H_REBOOT_DEVICE "reboot-device"
 #define H_SHUTDOWN_DEVICE "shutdown-device"
 #define H_GET_DIR "get-dir"
+#define H_GET_FILE "get-file"
 
 volatile sig_atomic_t sigint_flag = 0;
 

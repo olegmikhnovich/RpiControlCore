@@ -97,6 +97,14 @@ std::string get_dir(const std::string &message) {
     return result;
 }
 
+std::string get_file(const std::string &message) {
+    auto f = new FileManager;
+    std::string data;
+    auto result = f->get_file(message);
+    delete f;
+    return result;
+}
+
 std::string RpiControlCore::process_package(std::string &header, std::string &message) {
     std::string response;
 
@@ -157,6 +165,11 @@ std::string RpiControlCore::process_package(std::string &header, std::string &me
         case sw_str(H_GET_DIR):
             response = init_response(H_GET_DIR);
             response += get_dir(message);
+            break;
+
+        case sw_str(H_GET_FILE):
+            response = init_response(H_GET_FILE);
+            response += get_file(message);
             break;
 
         default:
