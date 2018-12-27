@@ -105,6 +105,26 @@ std::string get_file(const std::string &message) {
     return result;
 }
 
+std::string get_eth_connection() {
+    auto c = new Connectivity;
+    auto conn = c->get_ethernet_connection();
+    std::string data;
+    data = conn->name + "|" + conn->ip + "|" + conn->mac;
+    delete c;
+    delete conn;
+    return data;
+}
+
+std::string run_cmd(const std::string &message) {
+    auto raw = Utils::exec(message.data());
+    auto raw_arr = Utils::split(raw, "\\n");
+    std::string result;
+    for (auto s: raw_arr) {
+        result += s + "\\n";
+    }
+    return result;
+}
+
 std::string RpiControlCore::process_package(std::string &header, std::string &message) {
     std::string response;
 
@@ -170,6 +190,16 @@ std::string RpiControlCore::process_package(std::string &header, std::string &me
         case sw_str(H_GET_FILE):
             response = init_response(H_GET_FILE);
             response += get_file(message);
+            break;
+
+        case sw_str(H_GET_ETH_CONNECTION):
+            response = init_response(H_GET_ETH_CONNECTION);
+            response += get_eth_connection();
+            break;
+
+        case sw_str(H_EXEC_CMD):
+            response = init_response(H_EXEC_CMD);
+            response += run_cmd(message);
             break;
 
         default:

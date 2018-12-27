@@ -19,6 +19,7 @@
 #include "src/deviceproperties.hpp"
 #include "src/audiocontrol.hpp"
 #include "src/filemanager.hpp"
+#include "src/connectivity.hpp"
 
 #define PORT 4822
 #define BUFF_SIZE 8192
@@ -35,6 +36,8 @@
 #define H_SHUTDOWN_DEVICE "shutdown-device"
 #define H_GET_DIR "get-dir"
 #define H_GET_FILE "get-file"
+#define H_GET_ETH_CONNECTION "get-eth-connection"
+#define H_EXEC_CMD "exec-cmd"
 
 volatile sig_atomic_t sigint_flag = 0;
 
