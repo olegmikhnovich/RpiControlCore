@@ -2,6 +2,8 @@
 
 RpiControl is a platform for Raspbian. RpiControl lets you configure and manage your device remotely over your local network.
 
+**[Project website](https://olegmikhnovich.github.io/rpicontrolproject)**
+
 This project contains 3 modules
 
 | Module        | Description     |
