@@ -2,12 +2,13 @@
 
 RpiControl is a platform for Raspbian. RpiControl lets you configure and manage your device remotely over your local network.
 
-This project contains 2 modules
+This project contains 3 modules
 
 | Module        | Description     |
 | ------------- |-----------------|
 | [RpiControl Core](https://github.com/olegmikhnovich/RpiControlCore) | Engine |
 | [RpiControl App](https://github.com/olegmikhnovich/RpiControl)      | Client application for macOS |
+| [RpiControl Mobile](https://github.com/olegmikhnovich/RpiControlMobile)      | Client application for iOS |
 
 ## Requirements
 * OS Raspbian Stretch or newer
