@@ -16,6 +16,26 @@ This project contains 3 modules
 * OS Raspbian Stretch or newer
 * Raspberry Pi device
 
+## Build engine
+* Install [CMake](https://cmake.org/install/).
+* Clone this repo
+```sh
+git clone https://github.com/olegmikhnovich/RpiControlCore
+```
+* Go to the folder
+```sh
+cd RpiControlCore
+```
+* Give execute permissions to install script
+```sh
+sudo chmod +x ./install.sh
+```
+* And run it
+```sh
+sudo ./install.sh
+```
+After this steps you should reboot your device.
+
 ## Old versions
 **WARNING! DON'T USE LEGACY VERSIONS OF THIS PRODUCT!**
 
